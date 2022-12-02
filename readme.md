@@ -10,13 +10,15 @@
    * [Sobre os Parâmetros](#Sobre-os-parametros)
         * ```
             ...
-                atributo = models.FileField(upload_to=RenomeandoAnexo('nome_arquivo','nome_acao'))
+                atributo = models.FileField(upload_to=RenomeandoAnexo('nome_arquivo','nome_acao','nome_extensao'))
             ...
             ```
         * nome_arquivo
             * Nome que você deseja renomear o arquivo
         * nome_acao
-            * Nome especifico sobre o tipo de cadastro
+            * Nome específico sobre o tipo de cadastro
+        * nome_extensao
+            * Nome do tipo da extensão 
    * [Observação](#Observacao)
         * Para o instance.id funcionar é preciso que modifique o ID na model, coloque como campo UUIDField
         * ```
@@ -29,7 +31,7 @@
             ...
             class Animal(models.Model):
             ...
-                carteira_vacinacao_anexo = models.FileField(upload_to=RenomeandoAnexo('carteira_vacinacao','cadastro_animal'), blank=True, null = True,verbose_name="Carteira de Vacinação")
+                carteira_vacinacao_anexo = models.FileField(upload_to=RenomeandoAnexo('carteira_vacinacao','cadastro_animal','.pdf'), blank=True, null = True,verbose_name="Carteira de Vacinação")
             ...
             ```
         * Caminho final do arquivo: media/uploads/cadastro_animal/099d5f3f-3795-4cae-8b18-d40dfd98b1b7/carteira_vacinacao.pdf
